@@ -1,0 +1,21 @@
+if ($scope.watchId) return;
+    
+var requestData = {};
+ 
+var def = Apperyio.get("Geolocation_watchPosition")(requestData);
+def.then(    
+    function(success){
+       
+    },
+    function(error){
+        
+    },
+    function(notify){
+        var la_scope = $scope.la;
+        var lo_scope = $scope.lo;
+        la_scope = notify.result.coords.latitude;
+        lo_scope = notify.result.coords.longitude;
+        $scope.la = la_scope;
+        $scope.lo = lo_scope;        
+    });
+$scope.watchId = def.watchId;
