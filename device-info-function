@@ -1,0 +1,18 @@
+// function to add to the button telling you the device info
+if (document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1) {
+    var msg = 'Model: ' + device.model + 'nCordova: ' + device.cordova + 'nPlatform: ' + device.platform;
+ 
+    navigator.notification.alert(
+        msg,
+        alertWindowClosed,
+        'Appery.io App',
+        'Close'
+    );
+    function alertWindowClosed() {
+// do nothing for now
+    }
+}
+else
+{
+    alert('Install app as binary to see the device details!');
+}
