@@ -1,0 +1,26 @@
+// Check online or offline status
+Apperyio.get("AppClientGeneralOperations").getstate().then(function(state){
+  if (state === 'online'){
+    $scope.appState = true;
+  } else {
+    $scope.appState = false;
+  }
+
+  console.log(state);
+});
+
+
+
+//Toggle online/offline mode
+
+if ($scope.appState){
+  Apperyio.get("AppClientGeneralOperations").goOffline().then(function(state){
+    $scope.appState = false;
+    console.log(state);
+  });
+} else {
+  Apperyio.get("AppClientGeneralOperations").goOnline().then(function(state){
+    $scope.appState = true;
+    console.log(state);
+  });
+}
